@@ -1,5 +1,6 @@
 from django import forms
 from .models import Vare
+from django.contrib.auth.models import User
 
 class VareForm(forms.ModelForm):
 
@@ -13,3 +14,10 @@ class VareForm(forms.ModelForm):
     class Meta:
         model = Vare
         fields = ('navn', 'pris', 'alkohol','volum')
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']

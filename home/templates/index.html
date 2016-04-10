@@ -39,16 +39,16 @@
     {% block content %}
     {% endblock %}
 <div class="container">
-<div class="jumbotron">
+<h2>Dine siste søk</h2>
 {% for item in vare %}
-<p>Navn: {{ item.navn }}</p>
+    <div class="col-sm-6 jumbotron">
+    <p>Navn: {{ item.navn }}</p>
     <p>Volum: {{ item.volum }} L</p>
     <p>Pris: {{ item.pris }} kr</p>
     <p>Alkohol: {{ item.alkohol }} %</p>
     <p style="color: darkorange">Du betaler: {{ item.kalkulering }} kr/cl alkohol</p>
-    <h1>-----------</h1>
+    </div>
 {% endfor %}
-</div>
 </div>
 
 

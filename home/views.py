@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import loader
 from .models import Vare
-from .forms import VareForm
+from .forms import VareForm, UserForm
+from django.contrib.auth import authenticate, login
+from django.views.generic import View
 
 
 def index(request):
-    vare = Vare.objects.all().reverse()
+    vare = Vare.objects.all().order_by('-id')
 
 
     if request.method == 'POST':
@@ -26,6 +28,7 @@ def index(request):
 def do_calc(pris, volum, alkohol):
 
     resultat = (float(pris)/((float(alkohol)/100) * float(volum)))/50
+    resultat = "%.2f" % resultat
 
     return resultat
 
