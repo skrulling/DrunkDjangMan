@@ -7,5 +7,8 @@ class Vare(models.Model):
     volum = models.CharField(max_length=10)
     kalkulering = models.CharField(max_length=20)
 
+
     def __str__(self):
-        return self.navn + ' - ' + self.kalkulering
+        return self.navn + ' - '
+
+1
