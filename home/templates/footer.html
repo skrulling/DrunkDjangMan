@@ -1,0 +1,16 @@
+
+{% extends 'index.html' %}
+{% block content %}
+    <div class="jumbotron" id="jumbo2">
+            <h4 style="text-decoration: underline">Tidligere søk</h4>
+            {% for varer in vare %}
+                <h5>Navn: {{ varer.navn }}</h5>
+                <h5>Pris: {{ varer.pris }} kr</h5>
+                <h5>Alkohol: {{ varer.alkohol }} %</h5>
+                <h5>Volum: {{ varer.volum }} L</h5>
+                <h5>Pris i kr per cl alkohol: {{ varer.kalkulering }} kr/cl</h5>
+                <p>---------</p>
+            {% endfor %}
+
+        </div>
+{% endblock %}

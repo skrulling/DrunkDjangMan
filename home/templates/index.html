@@ -1,0 +1,42 @@
+
+
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="page-header">
+            <h1>Get Drunk</h1>
+        </div>
+        <form  method="post" class="input-group" action="/home">
+            {% csrf_token %}
+            {{ form }}
+
+        <div class="btn">
+            <button type="submit" id="calc">Calculate</button>
+        </div>
+        </form>
+
+        <h3 id="vis"></h3>
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#calc').click(function(){
+                var p = document.getElementById('price').value;
+                var a = document.getElementById('amount').value;
+                var c = (document.getElementById('perc').value)/100;
+                var total = (p/(a * c))/50;
+                document.getElementById("vis").innerHTML = total.toFixed(2) + ' kr/cl';
+
+            })
+        });
+    </script>
+    {% block content %}
+    {% endblock %}
+
+</div>
