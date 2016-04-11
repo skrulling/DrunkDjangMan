@@ -26,6 +26,7 @@ def index(request):
         return redirect(notuser)
     else:
         vare = Vare.objects.all().order_by('-id')
+        top = Vare.objects.all().order_by('kalkulering')[:3]
 
 
         if request.method == 'POST':
@@ -39,7 +40,7 @@ def index(request):
         else:
             form = VareForm
 
-        return render(request, 'index.html', {'form':form, 'vare':vare},)
+        return render(request, 'index.html', {'form':form, 'vare':vare, 'top':top},)
 
 def do_calc(pris, volum, alkohol):
 

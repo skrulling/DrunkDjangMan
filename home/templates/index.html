@@ -44,6 +44,15 @@
             })
         });
     </script>
+<div class="container-fluid">
+<div class="jumbotron">
+<h2>Top 3 best values:</h2><h2 class="glyphicon glyphicon-star"></h2>
+{% for item in top %}
+    <h3>Navn: {{ item.navn }}</h3>
+    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/cl alkohol</h3>
+{% endfor %}
+</div>
+</div>
 
 <div class="container">
 <h2>Dine siste søk</h2>
