@@ -22,3 +22,13 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password']
 
+class TempVareForm(forms.Form):
+
+    volum = forms.FloatField(max_value=10000)
+    alkohol = forms.FloatField(max_value=100)
+    pris = forms.FloatField(max_value=10000000)
+    kalkulering = ''
+
+
+    class Meta:
+        fields = ('pris', 'alkohol','volum')

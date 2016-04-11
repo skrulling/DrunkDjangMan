@@ -5,3 +5,29 @@
     background-color: darkorange;
     border-radius: 7px;
 }
+#register{
+background-color: darkorange;
+    margin: 2px;
+}
+#register a{
+    color: white;
+}
+#loginn{
+background-color: darkorange;
+    margin: 2px;
+}
+#loginn a{
+color: white;
+}
+#logout{
+background-color: darkorange;
+    margin: 2px;
+}
+#logout a{
+    color: white;
+}
+#navbar{
+    border-radius: 0;
+    background-color: darkgray;
+    border: none;
+}

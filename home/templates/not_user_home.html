@@ -8,7 +8,7 @@
 
 <div class="navbar navbar-inverse" id="navbar">
     <div class="container-fluid">
-        <h3 class="pull-left">You are logged in as: {{ user.username }}</h3>
+        <h3 class="pull-left">You are not logged in, to get complete functionality, please log in.</h3>
         <button class="btn pull-right glyphicon glyphicon-plus" id="register"><a href="register">Register</a></button>
         <button class="btn pull-right glyphicon glyphicon-user" id="loginn"><a href="login">LogIn</a></button>
         <button class="btn pull-right glyphicon glyphicon-off" id="logout"><a href="logout">LogOut</a></button>
@@ -23,40 +23,16 @@
         <form  method="post" class="input-group" action="/home">
             {% csrf_token %}
             {{ form }}
-
         <div class="btn">
-            <button class="btn btn-success" type="submit" id="calc">Calculate</button>
+            <button class="btn btn-success" id="calc">Calculate</button>
         </div>
         </form>
 
-        <h3 id="vis"></h3>
+        <h3>{{ kalkulering }}</h3>
 
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#calc').click(function(){
-                var p = document.getElementById('price').value;
-                var a = document.getElementById('amount').value;
-                var c = (document.getElementById('perc').value)/100;
-                var total = (p/(a * c))/50;
-                document.getElementById("vis").innerHTML = total.toFixed(2) + ' kr/cl';
 
-            })
-        });
-    </script>
 
-<div class="container">
-<h2>Dine siste søk</h2>
-{% for item in vare %}
-    <div class="col-sm-4 jumbotron" style="margin-left: 2px">
-    <p>Navn: {{ item.navn }}</p>
-    <p>Volum: {{ item.volum }} L</p>
-    <p>Pris: {{ item.pris }} kr</p>
-    <p>Alkohol: {{ item.alkohol }} %</p>
-    <p style="color: darkorange">Du betaler: {{ item.kalkulering }} kr/cl alkohol</p>
-    </div>
-{% endfor %}
-</div>
 
 
 </div>
