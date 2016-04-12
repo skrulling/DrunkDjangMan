@@ -8,10 +8,21 @@
 
 <div class="navbar navbar-inverse" id="navbar">
     <div class="container-fluid">
-        <h3 class="pull-left">You are logged in as: {{ user.username }}</h3>
-        <button class="btn pull-right glyphicon glyphicon-plus" id="register"><a href="register">Register</a></button>
-        <button class="btn pull-right glyphicon glyphicon-user" id="loginn"><a href="login">LogIn</a></button>
-        <button class="btn pull-right glyphicon glyphicon-off" id="logout"><a href="logout">LogOut</a></button>
+        <ul>
+        <h3 class="pull-left" style="color: darkorange"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color: #454545"></span> {{ user.username }}</h3>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="register"><a href="register">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register</a></button>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="loginn"><a href="login">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Log in</a></button>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="logout"><a href="logout">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></button>
+            </ul>
     </div>
 </div>
 
