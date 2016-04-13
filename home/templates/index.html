@@ -13,32 +13,34 @@
             </ul>
         <ul>
         <button class="btn pull-right" id="register"><a href="register">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register</a></button>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registrer</a></button>
             </ul>
         <ul>
         <button class="btn pull-right" id="loginn"><a href="login">
-            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Log in</a></button>
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Logg inn</a></button>
             </ul>
         <ul>
         <button class="btn pull-right" id="logout"><a href="logout">
-            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Log out</a></button>
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logg ut</a></button>
             </ul>
     </div>
 </div>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron col-sm-4">
+
         <div class="page-header">
             <h1>Get Drunk</h1>
         </div>
-        <form  method="post" class="input-group" action="/home">
+        <form method="post" class="input-group col-sm-4" action="/home">
             {% csrf_token %}
             {{ form }}
 
-        <div class="btn">
-            <button class="btn btn-success" type="submit" id="calc">Calculate</button>
+        <div class="btn col-sm-offset-2 col-sm-4">
+            <button class="btn btn-success" type="submit" id="calc">Regn ut!</button>
         </div>
         </form>
+
 
         <h3 id="vis"></h3>
 
@@ -56,24 +58,28 @@
         });
     </script>
 <div class="container-fluid">
-<div class="jumbotron">
-<h2>Top 3 best values:</h2><h2 class="glyphicon glyphicon-star"></h2>
+<div class="jumbotron col-sm-4 col-sm-offset-1">
+<h2>Topp 3 beste kjøp:</h2><h2 class="glyphicon glyphicon-star"></h2>
 {% for item in top %}
     <h3>Navn: {{ item.navn }}</h3>
-    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/cl alkohol</h3>
+    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/2 cl alkohol</h3>
 {% endfor %}
 </div>
+<div class="jumbotron col-sm-2 col-sm-offset-1">
+    <h3>Info</h3>
+    <p style="font-size: 100%">Dette er en kalkulator som regner ut hvor mye du betaler per enhet(2cl) alkohol.</p>
+    <p style="font-size: 100%">På denne  måten kan du regne ut hvor godt kjøp en drikkevare er med tanke på hvor mye alkohol du får for pengene.</p>
 </div>
 
 <div class="container">
-<h2>Dine siste søk</h2>
+<h2 style="margin-left: 20px">Siste søk</h2>
 {% for item in vare %}
-    <div class="col-sm-4 jumbotron" style="margin-left: 2px">
+    <div class="col-sm-4 jumbotron" style="margin-left: 20px">
     <p>Navn: {{ item.navn }}</p>
     <p>Volum: {{ item.volum }} L</p>
     <p>Pris: {{ item.pris }} kr</p>
     <p>Alkohol: {{ item.alkohol }} %</p>
-    <p style="color: darkorange">Du betaler: {{ item.kalkulering }} kr/cl alkohol</p>
+    <p style="color: darkorange">Du betaler: {{ item.kalkulering }} kr/2 cl alkohol</p>
     </div>
 {% endfor %}
 </div>

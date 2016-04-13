@@ -25,8 +25,8 @@ def index(request):
     if not request.user.is_authenticated():
         return redirect(notuser)
     else:
-        vare = Vare.objects.all().order_by('-id')
-        top = Vare.objects.all().order_by('kalkulering')[:3]
+        vare = Vare.objects.filter(user=request.user).order_by('-id')
+        top = Vare.objects.filter(user=request.user).order_by('kalkulering')[:3]
 
 
         if request.method == 'POST':
@@ -34,6 +34,7 @@ def index(request):
             if form.is_valid():
                 post = form.save(commit=False)
                 post.kalkulering = do_calc(post.pris, post.volum, post.alkohol)
+                post.user = request.user
                 post.save()
                 form = VareForm()
 
