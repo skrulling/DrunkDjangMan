@@ -9,23 +9,15 @@ from django.views.generic import View
 from django.contrib.auth.models import User
 
 def notuser(request):
-    if request.method == 'POST':
-        form = TempVareForm(request.POST)
-        if form.is_valid():
-            pris = form.pris
-            volum = form.volum
-            alkohol = form.alkohol
-            kalkulering = do_calc(pris, volum, alkohol)
+    form = TempVareForm
 
-            return HttpResponse(kalkulering)
-
-    return render(request, 'not_user_home.html',)
+    return render(request, 'not_user_home.html', {'form':form})
 
 def index(request):
     if not request.user.is_authenticated():
         return redirect(notuser)
     else:
-        vare = Vare.objects.filter(user=request.user).order_by('-id')
+        vare = Vare.objects.filter(user=request.user).order_by('-id')[:20]
         top = Vare.objects.filter(user=request.user).order_by('kalkulering')[:3]
 
 

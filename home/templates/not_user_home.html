@@ -8,31 +8,57 @@
 
 <div class="navbar navbar-inverse" id="navbar">
     <div class="container-fluid">
-        <h3 class="pull-left">You are not logged in, to get complete functionality, please log in.</h3>
-        <button class="btn pull-right glyphicon glyphicon-plus" id="register"><a href="register">Register</a></button>
-        <button class="btn pull-right glyphicon glyphicon-user" id="loginn"><a href="login">LogIn</a></button>
-        <button class="btn pull-right glyphicon glyphicon-off" id="logout"><a href="logout">LogOut</a></button>
+        <ul>
+        <h3 class="pull-left" style="color: darkorange"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color: #454545"></span> Du er ikke logget inn</h3>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="register"><a href="register">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Registrer</a></button>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="loginn"><a href="login">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Logg inn</a></button>
+            </ul>
     </div>
 </div>
 
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron col-sm-6">
         <div class="page-header">
             <h1>Get Drunk</h1>
         </div>
-        <form  method="post" class="input-group" action="/home">
+        <form  method="post" class="input-group">
             {% csrf_token %}
-            {{ form }}
+            <input type="number" id="price" class="form-control" placeholder="Pris i kr">
+            <input type="number" id="amount" class="form-control" placeholder="Volum i liter">
+            <input type="number" id="perc" class="form-control" placeholder="Prosent alkohol">
+
         <div class="btn">
-            <button class="btn btn-success" id="calc">Calculate</button>
+            <button class="btn btn-success" id="calc">Regn ut</button>
         </div>
         </form>
 
-        <h3>{{ kalkulering }}</h3>
+        <h3>Dette produktet koster:</h3>
+        <h3 id="vis"></h3>
 
     </div>
+    <div class="jumbotron col-sm-3 col-sm-offset-1" id="notuserfront">
+        <p>Du er for øyeblikket ikke logget inn.</p>
+        <p>Vi anbefaler deg å lage en bruker for å få fullt utbytte av programmet.</p>
+        <p>Med bruker lagrer vi søkene dine for deg, og viser deg dine tidligere søk.</p>
+        <p>Du får også en topp 3 liste over de beste kjøpene du har søkt på.</p>
+        <p>Det er gratis å registere seg, og tar 2 sekunder.</p>
+        </div>
+    <script>
+        $(document).ready(function() {
+            $('#calc').click(function(){
+                var p = document.getElementById('price').value;
+                var a = document.getElementById('amount').value;
+                var c = (document.getElementById('perc').value)/100;
+                var total = (p/(a * c))/50;
+                document.getElementById("vis").innerHTML = total.toFixed(2) + ' kr/enhet alkohol';
 
-
-
-
+            })
+        });
+    </script>
 </div>

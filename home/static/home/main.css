@@ -31,3 +31,14 @@ background-color: darkorange;
     background-color: lightgray;
     border: none;
 }
+#notuserfront p{
+    font-size: 110%;
+}
+#infojumbo{
+    background-color: darkorange;
+    color: black;
+    margin-left: 15px;
+}
+#infojumbo p{
+    font-size: 100%;
+}

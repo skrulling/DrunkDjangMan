@@ -27,6 +27,7 @@
 </div>
 
 <div class="container">
+    <div class="row">
     <div class="jumbotron col-sm-4">
 
         <div class="page-header">
@@ -57,24 +58,26 @@
             })
         });
     </script>
-<div class="container-fluid">
-<div class="jumbotron col-sm-4 col-sm-offset-1">
+
+<div class="jumbotron col-sm-4" style="margin-left: 15px">
 <h2>Topp 3 beste kjøp:</h2><h2 class="glyphicon glyphicon-star"></h2>
 {% for item in top %}
     <h3>Navn: {{ item.navn }}</h3>
-    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/2 cl alkohol</h3>
+    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/enhet alkohol</h3>
 {% endfor %}
 </div>
-<div class="jumbotron col-sm-2 col-sm-offset-1">
+<div class="jumbotron col-sm-3" id="infojumbo">
     <h3>Info</h3>
-    <p style="font-size: 100%">Dette er en kalkulator som regner ut hvor mye du betaler per enhet(2cl) alkohol.</p>
-    <p style="font-size: 100%">På denne  måten kan du regne ut hvor godt kjøp en drikkevare er med tanke på hvor mye alkohol du får for pengene.</p>
+    <p>Dette er en kalkulator som regner ut hvor mye du betaler per enhet(2cl) alkohol.</p>
+    <p>På denne  måten kan du regne ut hvor godt kjøp en drikkevare er med tanke på hvor mye alkohol du får for pengene.</p>
+    <p>NB! Husk å bruke punktum og ikke komma når du skriver inn tall i kalkulatoren. Det skal skrives som f.eks 4.7 % og IKKE 4,7 %</p>
+</div>
 </div>
 
 <div class="container">
 <h2 style="margin-left: 20px">Siste søk</h2>
 {% for item in vare %}
-    <div class="col-sm-4 jumbotron" style="margin-left: 20px">
+    <div class="col-sm-3 jumbotron" style="margin-left: 20px">
     <p>Navn: {{ item.navn }}</p>
     <p>Volum: {{ item.volum }} L</p>
     <p>Pris: {{ item.pris }} kr</p>
