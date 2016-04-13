@@ -27,8 +27,8 @@
         <div class="page-header">
             <h1>Get Drunk</h1>
         </div>
-        <form  method="post" class="input-group">
-            {% csrf_token %}
+        <div class="input-group">
+
             <input type="number" id="price" class="form-control" placeholder="Pris i kr">
             <input type="number" id="amount" class="form-control" placeholder="Volum i liter">
             <input type="number" id="perc" class="form-control" placeholder="Prosent alkohol">
@@ -36,7 +36,7 @@
         <div class="btn">
             <button class="btn btn-success" id="calc">Regn ut</button>
         </div>
-        </form>
+        </div>
 
         <h3>Dette produktet koster:</h3>
         <h3 id="vis"></h3>
