@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, RequestContext
 from django.template import loader
@@ -19,6 +19,7 @@ def index(request):
     else:
         vare = Vare.objects.filter(user=request.user).order_by('-id')[:20]
         top = Vare.objects.filter(user=request.user).order_by('kalkulering')[:3]
+
 
 
         if request.method == 'POST':
@@ -86,3 +87,4 @@ def login_user(request):
             return render(request, 'login.html', {'error_message': 'Invalid login'})
 
     return render(request, 'login.html', {})
+
