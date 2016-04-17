@@ -16,6 +16,13 @@ background-color: darkorange;
 background-color: darkorange;
     margin: 2px;
 }
+#kalkulator{
+    margin: 2px;
+    background-color: darkorange;
+}
+#kalkulator a{
+    color: white;
+}
 #loginn a{
 color: white;
 }

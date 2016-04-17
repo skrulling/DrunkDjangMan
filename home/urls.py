@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-app_name = 'home'
+
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^logout$', views.logout_user, name='logout_user'),
     url(r'^login$', views.login_user, name='login_user'),
     url(r'^not_user$', views.notuser, name='notuser'),
+    url(r'^top_10$', views.top_10, name='top_10'),
 
 
 

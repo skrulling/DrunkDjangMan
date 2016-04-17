@@ -1,0 +1,40 @@
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<div class="navbar navbar-inverse" id="navbar">
+    <div class="container-fluid">
+        <ul>
+        <h3 class="pull-left" style="color: darkorange"><span class="glyphicon glyphicon-home" aria-hidden="true" style="color: #454545"></span> {{ user.username }}</h3>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="Kalkulator"><a href="home">
+            <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> Kalkulator</a></button>
+            </ul>
+        <ul>
+        <button class="btn pull-right" id="logout"><a href="logout">
+            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logg ut</a></button>
+            </ul>
+
+    </div>
+</div>
+
+    <div class="jumbotron col-sm-4" style="margin-left: 15px; border-radius: 5px;">
+<h2>Topp 10 beste kjøp:</h2><h2 class="glyphicon glyphicon-star"></h2>
+{% for item in top_10 %}
+    <h3>Navn: {{ item.navn }}</h3>
+    <h3>Volum: {{ item.volum }} L</h3>
+    <h3>Pris: {{ item.pris }} kr</h3>
+    <h3>Alkohol: {{ item.alkohol }} %</h3>
+    <h3 style="color: darkorange">Kalkulering: {{ item.kalkulering }} kr/enhet alkohol</h3>
+    <h3>-----------------</h3>
+{% endfor %}
+</div>
+<div class="jumbotron col-sm-3" id="infojumbo" style="border-radius: 5px;">
+    <h3>Topp 10 liste Vinmonopolet</h3>
+    <p>Dette er en topp 10 liste over de beste kjøpene på vinmonopolet.</p>
+    <p>Denne listen er laget manuelt, så det er fullt mulig å finne bedre kjøp enn dette.</p>
+    <p>Alle priser brukt her er hentet fra vinmonopolet.no</p>
+</div>

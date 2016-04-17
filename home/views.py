@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, RequestContext
 from django.template import loader
-from .models import Vare
+from .models import Vare, Top
 from .forms import VareForm, UserForm, TempVareForm
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
@@ -88,3 +88,10 @@ def login_user(request):
 
     return render(request, 'login.html', {})
 
+def top_10(request):
+    if not request.user.is_authenticated():
+        return redirect(notuser)
+    else:
+        top_10 = Top.objects.all().order_by('kalkulering')[:10]
+
+        return render(request, 'top_10.html', {'top_10':top_10})
