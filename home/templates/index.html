@@ -23,15 +23,17 @@
     <div class="jumbotron col-sm-4">
 
         <div class="page-header">
-            <h1>Get Drunk</h1>
+            <h1>Drikk Billig</h1>
         </div>
         <form method="post" class="input-group col-sm-4" action="/home">
+            <div class="container" id="container-form">
             {% csrf_token %}
             {{ form }}
 
         <div class="btn col-sm-offset-2 col-sm-4">
             <button class="btn btn-success" type="submit" id="calc">Regn ut!</button>
         </div>
+                </div>
         </form>
 
 

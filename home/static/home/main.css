@@ -42,3 +42,6 @@ background-color: darkorange;
 #infojumbo p{
     font-size: 100%;
 }
+#container-form {
+    width: 100px;
+}
